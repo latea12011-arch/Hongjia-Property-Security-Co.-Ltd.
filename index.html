@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>紘嘉物業保全公司 - 首頁</title>
+    <title>紘嘉物業保全公司 - 頂級安全防護 ‧ 智慧物業管理首選</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -15,6 +15,7 @@
             --text-dark: #2c3e50;
             --text-light: #f8f9fa;
             --bg-light: #f4f7f6;
+            --bg-dark-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
         }
 
         body { 
@@ -60,7 +61,6 @@
             letter-spacing: 2px;
         }
 
-        /* 【修正處 1】 補上大括號，確保導覽列正確橫向排列 */
         nav { 
             display: flex; 
         }
@@ -80,7 +80,6 @@
             color: var(--accent-color); 
         }
 
-        /* 導覽列底線動畫效果 */
         nav a::after {
             content: '';
             position: absolute;
@@ -95,10 +94,10 @@
             width: 100%;
         }
         
-        /* 英雄區塊升級 */
+        /* 英雄視覺區 */
         .hero { 
             background: linear-gradient(rgba(15, 32, 39, 0.75), rgba(44, 83, 100, 0.75)), url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover; 
-            height: 550px; 
+            height: 600px; 
             color: #fff; 
             text-align: center; 
             display: flex; 
@@ -109,7 +108,7 @@
         }
 
         .hero h2 { 
-            font-size: 46px; 
+            font-size: 48px; 
             margin-bottom: 20px; 
             font-weight: 700;
             letter-spacing: 4px;
@@ -117,20 +116,20 @@
         }
 
         .hero p { 
-            font-size: 22px; 
+            font-size: 24px; 
             color: var(--accent-color); 
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             font-weight: 400;
             letter-spacing: 2px;
             text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
         }
         
-        /* 按鈕精緻化 */
+        /* 按鈕樣式 */
         .btn { 
             display: inline-block; 
             background: linear-gradient(135deg, var(--accent-color), #b89526); 
             color: var(--primary-color); 
-            padding: 14px 35px; 
+            padding: 14px 40px; 
             text-decoration: none; 
             font-weight: 700; 
             border-radius: 50px; 
@@ -146,92 +145,156 @@
             box-shadow: 0 6px 20px rgba(255,255,255,0.4);
         }
 
-        /* 主內文區塊 */
-        .main-content { 
-            flex: 1; 
-            padding: 80px 0 60px 0; 
-            text-align: center; 
-        }
-
-        .main-content h2 {
-            font-size: 32px;
+        /* 區塊共同標題 */
+        .section-title {
+            text-align: center;
+            font-size: 34px;
             color: var(--primary-color);
-            margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
-            padding-bottom: 15px;
+            margin-bottom: 15px;
+            font-weight: 700;
         }
-
-        .main-content h2::after {
-            content: '';
-            position: absolute;
+        .section-subtitle {
+            text-align: center;
+            color: #777;
+            font-size: 16px;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
+        }
+        .title-line {
             width: 60px;
             height: 3px;
             background-color: var(--accent-color);
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .main-content p {
-            font-size: 18px;
-            color: #666;
-            max-width: 700px;
             margin: 0 auto 15px auto;
         }
 
-        /* 新增：核心優勢區塊 */
-        .features {
-            background-color: var(--bg-light);
-            padding: 80px 0;
-            text-align: center;
+        /* 主內文介紹區塊 */
+        .main-content { 
+            padding: 90px 0; 
+            text-align: center; 
+            background-color: #fff;
+        }
+        .main-content p {
+            font-size: 18px;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+            text-align: justify;
         }
 
+        /* 數據實績區塊 (新加入) */
+        .stats-section {
+            background: var(--bg-dark-gradient);
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+        }
+        .stats-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .stat-item h3 {
+            font-size: 42px;
+            color: var(--accent-color);
+            margin: 0 0 10px 0;
+            font-weight: 700;
+        }
+        .stat-item p {
+            font-size: 16px;
+            margin: 0;
+            color: rgba(255,255,255,0.8);
+            letter-spacing: 1px;
+        }
+
+        /* 核心優勢區塊 */
+        .features {
+            background-color: var(--bg-light);
+            padding: 90px 0;
+            text-align: center;
+        }
         .feature-grid {
             display: flex;
             justify-content: space-between;
             gap: 30px;
-            margin-top: 40px;
         }
-
         .feature-card {
             background: #fff;
-            padding: 40px 30px;
+            padding: 45px 30px;
             border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
             flex: 1;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
         .feature-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
-
         .feature-card i {
-            font-size: 40px;
+            font-size: 45px;
             color: var(--accent-color);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
-
         .feature-card h3 {
             font-size: 22px;
             color: var(--primary-color);
             margin-bottom: 15px;
+            font-weight: 700;
         }
-
         .feature-card p {
             font-size: 15px;
-            color: #777;
+            color: #666;
+            margin: 0;
+            text-align: justify;
+        }
+
+        /* 服務流程區塊 (新加入) */
+        .process-section {
+            padding: 90px 0;
+            background-color: #fff;
+        }
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        .process-step {
+            text-align: center;
+            position: relative;
+            padding: 20px;
+        }
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 700;
+            margin: 0 auto 20px auto;
+            border: 2px solid var(--accent-color);
+        }
+        .process-step h4 {
+            font-size: 18px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        .process-step p {
+            font-size: 14px;
+            color: #666;
             margin: 0;
         }
 
-        /* 頁尾優化 */
+        /* 頁尾 */
         footer { 
             background: var(--primary-color); 
             color: rgba(255,255,255,0.7); 
             text-align: center; 
-            padding: 25px 0; 
+            padding: 30px 0; 
             font-size: 14px; 
             border-top: 4px solid var(--accent-color); 
         }
@@ -244,7 +307,8 @@
             nav a { margin: 5px 10px; font-size: 15px; }
             .hero h2 { font-size: 32px; }
             .hero p { font-size: 18px; }
-            .feature-grid { flex-direction: column; }
+            .feature-grid, .stats-grid { flex-direction: column; }
+            .stat-item { margin-bottom: 20px; }
         }
     </style>
 </head>
@@ -266,34 +330,92 @@
     <section class="hero">
         <h2>頂級安全防護 ‧ 智慧物業管理</h2>
         <p>為您的社區與資產提供最堅實的後盾</p>
-        <a href="services.html" class="btn">了解更多服務</a>
+        <a href="tender.html" class="btn">線上招標評選邀請</a>
     </section>
 
     <main class="main-content">
         <div class="container">
-            <h2>歡迎來到紘嘉物業保全</h2>
-            <p>我們結合「人防警衛」與「智慧科技」，為高檔住宅與商辦提供頂級飯店式的全方位管家服務。</p>
-            <p>秉持誠信、專業、尊榮的核心價值，量身打造最令人安心的空間環境。</p>
+            <h2 class="section-title">關於紘嘉</h2>
+            <div class="title-line"></div>
+            <p class="section-subtitle">ABOUT HONGJIA PROPERTY SECURITY</p>
+            <p>紘嘉物業保全結合了傳統「嚴格人防警衛」與現代「智慧科技安防」，專為高端住宅社區、大型商辦大樓及核心工業廠區提供量身打造的一站式維安與精緻管家服務。我們深知安全是幸福的基石，物業管理則是資產增值的關鍵，因此我們始終以最高規格的紀律與熱忱，落實每一項託付。</p>
+            <p>我們擁有超過10年以上實務經驗的菁英管理團隊，作為前線安防同仁的強力後盾。透過 AI 化監控與大數據系統管理，我們不僅大幅降低人為疏漏，更能達到滴水不漏的全方位防護，樹立業界尊榮服務的新標竿。</p>
         </div>
     </main>
 
+    <section class="stats-section">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <h3>10+</h3>
+                <p>核心團隊管理經驗 (年)</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>案場同仁無犯罪前科審查</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>全天候智慧雲端連防監控</p>
+            </div>
+            <div class="stat-item">
+                <h3>A級</h3>
+                <p>警衛特訓優等治安應變</p>
+            </div>
+        </div>
+    </section>
+
     <section class="features">
         <div class="container">
+            <h2 class="section-title">核心優勢</h2>
+            <div class="title-line"></div>
+            <p class="section-subtitle">OUR CORE ADVANTAGES</p>
+            
             <div class="feature-grid">
                 <div class="feature-card">
                     <i class="fa-solid fa-shield-halved"></i>
                     <h3>專業安防警衛</h3>
-                    <p>嚴格篩選特勤與安檢人員，定期接受精實訓練，提供最高規格的治安與危機應變防護。</p>
+                    <p>所有人員皆須通過嚴密的三重查核（無前科、體檢合格、依法投保）。到職後定期接受防身術、消防演練、危機與突發治安事件應變特訓，確保現場第一時間的處置能力。</p>
                 </div>
                 <div class="feature-card">
                     <i class="fa-solid fa-hotel"></i>
                     <h3>飯店式物業管理</h3>
-                    <p>導入精緻尊榮的管家服務文化，提升社區生活質感，打理生活大小庶務。</p>
+                    <p>將頂級飯店的精緻禮賓文化導入社區大小庶務中。無論是行政事務、透明化財務規畫，還是公共設施維護，皆有標準作業流程，全面提升住戶的生活質感。</p>
                 </div>
                 <div class="feature-card">
                     <i class="fa-solid fa-microchip"></i>
                     <h3>雲端智慧科技</h3>
-                    <p>結合 AI 監控、雲端門禁與智慧聯防系統，用科技打造無死角的安全防護網。</p>
+                    <p>領先導入 AI 視訊監控、紅外線電子圍籬以及 GPS 數位電子巡更系統。人防為主、科技為輔，透過雲端連防網建構全天候無盲點的安全保障。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process-section">
+        <div class="container">
+            <h2 class="section-title">標準服務流程</h2>
+            <div class="title-line"></div>
+            <p class="section-subtitle">STANDARD OPERATING PROCEDURE</p>
+            
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <h4>需求洽詢與勘查</h4>
+                    <p>接獲邀請後，派遣專員實地勘查環境、盲點與動線需求。</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <h4>量身企劃與簡報</h4>
+                    <p>根據現場狀況，規劃最適切的警衛配置與科技安防提案。</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <h4>人員遴選與交接</h4>
+                    <p>嚴選符合案場需求之保全與物業人員，進行前置教育訓練。</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <h4>進駐營運與督導</h4>
+                    <p>正式進駐服務，配合總部24小時勤務督導，維持最高服務品質。</p>
                 </div>
             </div>
         </div>
