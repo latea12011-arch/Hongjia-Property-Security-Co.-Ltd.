@@ -4,53 +4,291 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>服務項目 - 紘嘉物業保全公司</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        body { font-family: "Helvetica Neue", Arial, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
-        header { background-color: #0f2027; color: #fff; padding: 20px 0; border-bottom: 4px solid #d4af37; }
-        .container { width: 85%; margin: auto; overflow: hidden; }
-        header h1 { float: left; margin: 0; font-size: 24px; color: #d4af37; }
-        nav { float: right; margin-top: 5px; }
-        nav a { color: #fff; text-decoration: none; margin-left: 20px; font-weight: bold; }
-        nav a:hover, nav a.active { color: #d4af37; }
-        
-        .main-content { flex: 1; padding: 60px 0; text-align: center; background: #f4f7f6; }
-        .box { float: left; width: 30%; margin: 20px 1.5%; background: #fff; padding: 30px 20px; box-sizing: border-box; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid #0f2027; text-align: left; }
-        .box h3 { color: #0f2027; text-align: center; }
+        :root {
+            --primary-color: #0f2027;
+            --accent-color: #d4af37;
+            --accent-hover: #f3e5ab;
+            --text-dark: #2c3e50;
+            --text-light: #f8f9fa;
+            --bg-light: #f4f7f6;
+        }
 
-        footer { background: #0f2027; color: #fff; text-align: center; padding: 20px 0; font-size: 14px; border-top: 4px solid #d4af37; }
-        .clearfix::after { content: ""; clear: both; display: table; }
+        body { 
+            font-family: 'Noto Sans TC', "Helvetica Neue", Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            color: var(--text-dark); 
+            line-height: 1.8; 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh;
+            background-color: #fff;
+        }
+
+        /* 導覽列 */
+        header { 
+            background-color: var(--primary-color); 
+            padding: 15px 0; 
+            border-bottom: 4px solid var(--accent-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        
+        .container { 
+            width: 85%; 
+            max-width: 1200px;
+            margin: auto; 
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 { 
+            margin: 0; 
+            font-size: 26px; 
+            color: var(--accent-color); 
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        nav { 
+            display: flex; 
+        }
+
+        nav a { 
+            color: var(--text-light); 
+            text-decoration: none; 
+            margin-left: 25px; 
+            font-weight: 500; 
+            font-size: 16px;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover, nav a.active { 
+            color: var(--accent-color); 
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+        }
+
+        /* 橫幅 (Hero Banner) */
+        .hero-banner {
+            background: linear-gradient(rgba(15, 32, 39, 0.8), rgba(15, 32, 39, 0.8)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+        }
+        .hero-banner h2 { font-size: 36px; color: var(--accent-color); margin: 0; letter-spacing: 2px; font-weight: 700; }
+
+        /* 主要內容區 */
+        .main-content { 
+            flex: 1; 
+            padding: 80px 0; 
+            background: var(--bg-light); 
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* 服務項目 Grid 佈局 */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+        }
+
+        /* 精緻卡片設計 */
+        .service-box { 
+            background: #fff; 
+            padding: 40px 30px; 
+            border-radius: 12px; 
+            box-shadow: 0 8px 30px rgba(0,0,0,0.05); 
+            border-top: 5px solid var(--primary-color); 
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-box:hover {
+            transform: translateY(-10px);
+            border-top-color: var(--accent-color);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        /* 圖標與標題 */
+        .service-icon {
+            font-size: 45px;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .service-box h3 { 
+            color: var(--primary-color); 
+            text-align: center; 
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .service-box p {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        /* 詳細項目條列 */
+        .detail-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .detail-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: var(--text-dark);
+        }
+
+        .detail-list li i {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            color: var(--accent-color);
+            font-size: 14px;
+        }
+
+        /* 頁尾 */
+        footer { 
+            background: var(--primary-color); 
+            color: rgba(255,255,255,0.7); 
+            text-align: center; 
+            padding: 25px 0; 
+            font-size: 14px; 
+            border-top: 4px solid var(--accent-color); 
+        }
+
+        /* RWD 手機板優化 */
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; text-align: center; }
+            header h1 { margin-bottom: 15px; }
+            nav { justify-content: center; flex-wrap: wrap; }
+            nav a { margin: 5px 10px; font-size: 15px; }
+            .hero-banner h2 { font-size: 28px; }
+            .services-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
-    <header class="clearfix">
-        <div class="container">
+    <header>
+        <div class="container nav-container">
             <h1>紘嘉物業保全</h1>
-<nav>
-    <a href="index.html">首頁</a>
-    <a href="about.html">關於我們</a>
-    <a href="services.html">服務項目</a>
-    <a href="tender.html">招標評選邀請</a>
-    <a href="booking.html">人才招募</a>
-</nav>
+            <nav>
+                <a href="index.html">首頁</a>
+                <a href="about.html">關於我們</a>
+                <a href="services.html" class="active">服務項目</a>
+                <a href="tender.html">招標評選邀請</a>
+                <a href="booking.html">人才招募</a>
+            </nav>
         </div>
     </header>
 
-    <main class="main-content clearfix">
+    <section class="hero-banner">
+        <h2>服務項目 / SERVICES</h2>
+    </section>
+
+    <main class="main-content">
         <div class="container">
-            <h2>我們的專業服務</h2>
-            <div class="box">
-                <h3>高級物業管理</h3>
-                <p>飯店式禮賓接待、社區行政事務管理、財政財務收支透明化規畫，打造高品質居住環境。</p>
+            <h2 class="section-title">我們的專業服務</h2>
+            
+            <div class="services-grid">
+                <div class="service-box">
+                    <div class="service-icon"><i class="fa-solid fa-hotel"></i></div>
+                    <h3>高級物業管理</h3>
+                    <p>導入精緻飯店式禮賓精神，結合嚴謹的行政與財務管理機制，維持社區歷久彌新的資產價值，為住戶營造尊榮、溫馨且井然有序的最高居住品質。</p>
+                    <ul class="detail-list">
+                        <li><i class="fa-solid fa-check"></i> 飯店式門廳禮賓接待與秘書服務</li>
+                        <li><i class="fa-solid fa-check"></i> 財務收支透明化、年度預算專業規劃</li>
+                        <li><i class="fa-solid fa-check"></i> 社區行政庶務執行與管委會會議籌辦</li>
+                        <li><i class="fa-solid fa-check"></i> 營建代管期交屋公共設施點交顧問</li>
+                        <li><i class="fa-solid fa-check"></i> 機電消防設備定期維護監控督導</li>
+                    </ul>
+                </div>
+
+                <div class="service-box">
+                    <div class="service-icon"><i class="fa-solid fa-user-shield"></i></div>
+                    <h3>駐衛警衛保全</h3>
+                    <p>全體人員通過嚴格「三重安全查核」，無犯罪前科且身心健康。定期實施防身術、消防演練、危機應變與特勤訓練，用最高紀律築起安全防線。</p>
+                    <ul class="detail-list">
+                        <li><i class="fa-solid fa-check"></i> 24小時全天候中央管制與門禁防護</li>
+                        <li><i class="fa-solid fa-check"></i> 高級住宅、商辦大樓、廠區客製化駐衛</li>
+                        <li><i class="fa-solid fa-check"></i> 嚴密動線巡邏與盲點死角定時督崗</li>
+                        <li><i class="fa-solid fa-check"></i> 突發緊急治安事件、天然災害迅速應變</li>
+                        <li><i class="fa-solid fa-check"></i> 車道進出指引管制與防碰撞安全維護</li>
+                    </ul>
+                </div>
+
+                <div class="service-box">
+                    <div class="service-icon"><i class="fa-solid fa-microchip"></i></div>
+                    <h3>科技智慧安防</h3>
+                    <p>傳統人防結合現代 AI 科技，建構智慧型聯防網絡。大幅減少人為疏漏，全面落實數據化、系統化的精準管理，做到真正的滴水不漏。</p>
+                    <ul class="detail-list">
+                        <li><i class="fa-solid fa-check"></i> AI 智慧視訊監控與紅外線電子圍籬</li>
+                        <li><i class="fa-solid fa-check"></i> 雲端門禁識別與多功能住戶管理系統</li>
+                        <li><i class="fa-solid fa-check"></i> GPS 數位電子巡更與即時動態回報</li>
+                        <li><i class="fa-solid fa-check"></i> 智慧化資產財務管理平台導入</li>
+                        <li><i class="fa-solid fa-check"></i> 社區大型特殊活動維安科技部署</li>
+                    </ul>
+                </div>
             </div>
-            <div class="box">
-                <h3>駐衛警衛保全</h3>
-                <p>嚴格篩選精銳保全人員，24小时全天候門禁管制、定時巡邏、應變突發狀況，確保安全無虞。</p>
-            </div>
-            <div class="box">
-                <h3>科技智慧安防</h3>
-                <p>結合雲端監控、電子巡更系統、智能門禁與即時異常回報，用科技打造滴水不漏的防護網。</p>
-            </div>
+
         </div>
     </main>
 
